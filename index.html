@@ -12,14 +12,10 @@
   />
 
   <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 
-  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Leaflet JS -->
@@ -30,22 +26,52 @@
     defer
   ></script>
 
-  <!-- Your JS -->
   <script src="./script.js" type="module" defer></script>
   <script src="./secret.js" type="module" defer></script>
 
   <style>
-    #map { height: 500px; }
-    .info h5 { font-size: 0.75rem; color: gray; margin-bottom: 0.2rem; }
-    .info p { font-weight: bold; font-size: 1.25rem; }
+    .header-bg {
+    background-image: url('./images/pattern-bg-desktop.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 100vw;  
+    position: relative;
+    z-index: 1;   
+    }
+    #map {
+    height: 500px;
+    width: 100vmax;
+    margin-top: -120px; 
+    z-index: 0;
+    } 
+    #ip-form {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    }
+    #ip-results {
+    position: relative;
+    z-index: 10;
+    margin-top: 0px;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .info h5 {
+    font-size: 0.75rem;
+    color: gray;
+    margin-bottom: 0.2rem;
+    }
+    .info p {
+    font-weight: bold;
+    font-size: 1.25rem;
+    }
   </style>
 </head>
 <body>
-  <div class="container py-5">
-    <h1 class="text-center mb-4">IP Address Tracker</h1>
+  <div class="header-bg py-5">
+    <h1 class="text-center mb-4 text-white">IP Address Tracker</h1>
 
     <!-- Search Form -->
-    <form id="ip-form" class="input-group justify-content-center mb-3">
+    <form id="ip-form" class="input-group justify-content-center mb-3 px-5">
       <input
         type="text"
         id="ip-address"
@@ -53,7 +79,7 @@
         placeholder="Search for any IP address or domain"
       />
       <button class="btn btn-dark" type="submit">
-        Search
+         <img src="./images/icon-arrow.svg" alt="search" style="width:10px; height:10px;">
       </button>
     </form>
 
@@ -63,28 +89,29 @@
     </p>
 
     <!-- IP Info -->
-    <div id="ip-results" class="row text-center bg-light rounded p-4 mb-4">
-      <div class="col-md-3 mb-3 info">
-        <h5>IP Address</h5>
-        <p id="ip">--</p>
-      </div>
-      <div class="col-md-3 mb-3 info">
-        <h5>Location</h5>
-        <p id="city">--</p>
-        <p id="zip-code">--</p>
-      </div>
-      <div class="col-md-3 mb-3 info">
-        <h5>Timezone</h5>
-        <p id="timezone">--</p>
-      </div>
-      <div class="col-md-3 mb-3 info">
-        <h5>ISP</h5>
-        <p id="isp">--</p>
+    <div class="d-flex justify-content-center">
+      <div id="ip-results" class="row text-center bg-light rounded p-4 mb-4">
+        <div class="col-md-3 mb-3 info border-end">
+          <h5>IP Address</h5>
+          <p id="ip">--</p>
+        </div>
+        <div class="col-md-3 mb-3 info border-end">
+          <h5>Location</h5>
+          <p id="city">--</p>
+          <p id="zip-code">--</p>
+        </div>
+        <div class="col-md-3 mb-3 info border-end">
+          <h5>Timezone</h5>
+          <p id="timezone">--</p>
+        </div>
+        <div class="col-md-3 mb-3 info">
+          <h5>ISP</h5>
+          <p id="isp">--</p>
+        </div>
       </div>
     </div>
-
     <!-- Map -->
-    <div id="map" class="rounded shadow-sm mb-4"></div>
+    <div id="map"></div>
 
     
   </div>
