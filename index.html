@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> IP Address Tracker</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer
+  ></script>
+
+  <!-- Your JS -->
+  <script src="./script.js" type="module" defer></script>
+  <script src="./secret.js" type="module" defer></script>
+
+  <style>
+    #map { height: 500px; }
+    .info h5 { font-size: 0.75rem; color: gray; margin-bottom: 0.2rem; }
+    .info p { font-weight: bold; font-size: 1.25rem; }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4">IP Address Tracker</h1>
+
+    <!-- Search Form -->
+    <form id="ip-form" class="input-group justify-content-center mb-3">
+      <input
+        type="text"
+        id="ip-address"
+        class="form-control w-50"
+        placeholder="Search for any IP address or domain"
+      />
+      <button class="btn btn-dark" type="submit">
+        Search
+      </button>
+    </form>
+
+    <!-- Error Message -->
+    <p id="error-message" class="text-danger text-center d-none mb-3">
+      Please enter a valid IP address / domain. Ex: 8.8.8.8 / google.com
+    </p>
+
+    <!-- IP Info -->
+    <div id="ip-results" class="row text-center bg-light rounded p-4 mb-4">
+      <div class="col-md-3 mb-3 info">
+        <h5>IP Address</h5>
+        <p id="ip">--</p>
+      </div>
+      <div class="col-md-3 mb-3 info">
+        <h5>Location</h5>
+        <p id="city">--</p>
+        <p id="zip-code">--</p>
+      </div>
+      <div class="col-md-3 mb-3 info">
+        <h5>Timezone</h5>
+        <p id="timezone">--</p>
+      </div>
+      <div class="col-md-3 mb-3 info">
+        <h5>ISP</h5>
+        <p id="isp">--</p>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div id="map" class="rounded shadow-sm mb-4"></div>
+
+    
+  </div>
+</body>
+</html>
