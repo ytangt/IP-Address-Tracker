@@ -71,14 +71,15 @@
     <h1 class="text-center mb-4 text-white">IP Address Tracker</h1>
 
     <!-- Search Form -->
-    <form id="ip-form" class="input-group justify-content-center mb-3 px-5">
+    <form id="ip-form" class="input-group justify-content-center mb-3 px-5"
+    aria-label="IP address search form">
       <input
         type="text"
         id="ip-address"
         class="form-control w-50"
         placeholder="Search for any IP address or domain"
       />
-      <button class="btn btn-dark" type="submit">
+      <button class="btn btn-dark" type="submit" aria-label="Search IP">
          <img src="./images/icon-arrow.svg" alt="search" style="width:10px; height:10px;">
       </button>
     </form>
@@ -89,8 +90,8 @@
     </p>
 
     <!-- IP Info -->
-    <div class="d-flex justify-content-center">
-      <div id="ip-results" class="row text-center bg-light rounded p-4 mb-4">
+    <div class="d-flex justify-content-center" aria-label="IP information">
+      <div id="ip-results" class="row text-center bg-light rounded p-4 mb-4" >
         <div class="col-md-3 mb-3 info border-end">
           <h5>IP Address</h5>
           <p id="ip">--</p>
@@ -111,7 +112,7 @@
       </div>
     </div>
     <!-- Map -->
-    <div id="map"></div>
+    <div id="map" aria-label="Map showing the location of the IP address"></div>
 
     
   </div>
